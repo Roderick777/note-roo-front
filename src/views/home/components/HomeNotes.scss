@@ -1,0 +1,17 @@
+.px-2 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.note-form {
+  .field {
+    margin-bottom: 10px;
+  }
+}
+
+.note {
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
