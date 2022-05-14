@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/note-roo-front/static/css/main.aa3a0f7a.chunk.css",
+    "main.js": "/note-roo-front/static/js/main.2a8c67ec.chunk.js",
+    "main.js.map": "/note-roo-front/static/js/main.2a8c67ec.chunk.js.map",
+    "runtime-main.js": "/note-roo-front/static/js/runtime-main.08b8fd90.js",
+    "runtime-main.js.map": "/note-roo-front/static/js/runtime-main.08b8fd90.js.map",
+    "static/css/2.0ce74623.chunk.css": "/note-roo-front/static/css/2.0ce74623.chunk.css",
+    "static/js/2.749e8b81.chunk.js": "/note-roo-front/static/js/2.749e8b81.chunk.js",
+    "static/js/2.749e8b81.chunk.js.map": "/note-roo-front/static/js/2.749e8b81.chunk.js.map",
+    "static/js/3.9ab2d5f8.chunk.js": "/note-roo-front/static/js/3.9ab2d5f8.chunk.js",
+    "static/js/3.9ab2d5f8.chunk.js.map": "/note-roo-front/static/js/3.9ab2d5f8.chunk.js.map",
+    "index.html": "/note-roo-front/index.html",
+    "static/css/2.0ce74623.chunk.css.map": "/note-roo-front/static/css/2.0ce74623.chunk.css.map",
+    "static/css/main.aa3a0f7a.chunk.css.map": "/note-roo-front/static/css/main.aa3a0f7a.chunk.css.map",
+    "static/js/2.749e8b81.chunk.js.LICENSE.txt": "/note-roo-front/static/js/2.749e8b81.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.08b8fd90.js",
+    "static/css/2.0ce74623.chunk.css",
+    "static/js/2.749e8b81.chunk.js",
+    "static/css/main.aa3a0f7a.chunk.css",
+    "static/js/main.2a8c67ec.chunk.js"
+  ]
+}
