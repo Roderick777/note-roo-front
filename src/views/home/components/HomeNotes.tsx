@@ -1,4 +1,4 @@
-import { Button, Col, Input, Row } from 'antd'
+import { Button, Col, Empty, Input, Row } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useEffect, useState } from 'react'
 import { NoteCard } from '../../../components/NoteCard/NoteCard'
@@ -48,22 +48,29 @@ export const HomeNotes = () => {
   return (
     <Row>
       <Col xs={24} sm={24} md={12} lg={16} xl={16} xxl={16} className="px-2">
-        {notes.length &&
-          notes.map((e, i) => (
-            <NoteCard key={`note-${i}`}>
-              <div className="note">
-                <div>{e.name}</div>
-                <div className="note__actions">
-                  <Button
-                    onClick={() => deleteNote(i)}
-                    size={'small'}
-                    shape="circle"
-                    icon={<DeleteOutlined />}
-                  />
+        {notes.length ? (
+          <>
+            {notes.map((e, i) => (
+              <NoteCard key={`note-${i}`}>
+                <div className="note">
+                  <div>{e.name}</div>
+                  <div className="note__actions">
+                    <Button
+                      onClick={() => deleteNote(i)}
+                      size={'small'}
+                      shape="circle"
+                      icon={<DeleteOutlined />}
+                    />
+                  </div>
                 </div>
-              </div>
-            </NoteCard>
-          ))}
+              </NoteCard>
+            ))}
+          </>
+        ) : (
+          <>
+            <Empty />
+          </>
+        )}
       </Col>
       <Col
         xs={24}
