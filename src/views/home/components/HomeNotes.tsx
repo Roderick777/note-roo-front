@@ -1,69 +1,93 @@
-import { Button, Col, Empty, Input, Row } from 'antd'
-import TextArea from 'antd/lib/input/TextArea'
-import React, { useEffect, useState } from 'react'
+import { Button, Col, Drawer, Empty, Row } from 'antd'
+import { useEffect } from 'react'
 import { NoteCard } from '../../../components/NoteCard/NoteCard'
-import { INote } from '../../../interfaces/note.interface'
 import './HomeNotes.scss'
-import { NoteService } from '../../../services/note.service'
-import { DeleteOutlined } from '@ant-design/icons'
-const { create, list, remove } = NoteService()
-
-type FieldNameType = 'name' | 'description' | 'status' | 'tags'
+import {
+  DeleteOutlined,
+  AppstoreOutlined,
+  BarsOutlined,
+  EditOutlined,
+  EyeOutlined,
+} from '@ant-design/icons'
+import { useSelector } from 'react-redux'
+import { IStore } from '../../../store'
+import { HomeNoteForm } from './HomeNoteForm'
+import { useHomeNotes } from '../hooks/useHomeNotes'
 
 export const HomeNotes = () => {
-  const [notes, setNotes] = useState<INote[]>([])
-  const [noteForm, setNoteForm] = useState<INote>({
-    id: 0,
-    name: '',
-    description: '',
-    status: true,
-    tags: [],
-  })
+  const { notes, showCreateForm, visibilityType } = useSelector(
+    ({ note }: IStore) => note
+  )
 
-  const changeInput = <T extends {}>(fieldName: FieldNameType, value: T) => {
-    const newNoteForm: INote = { ...noteForm }
-    newNoteForm[fieldName] = value
-    setNoteForm(newNoteForm)
-  }
-
-  const listNotes = async () => {
-    const notes = await list()
-    setNotes(notes)
-  }
-
-  const createNote = async () => {
-    const data = await create(noteForm)
-    listNotes()
-  }
-
-  const deleteNote = async (index: number) => {
-    const data = await remove(index)
-    listNotes()
-  }
+  const {
+    listNotes,
+    deleteNote,
+    changeVisibility,
+    changeCreateForm,
+    viewNote,
+    getColumsConfig,
+  } = useHomeNotes()
 
   useEffect(() => {
     listNotes()
   }, [])
 
   return (
-    <Row>
-      <Col xs={24} sm={24} md={12} lg={16} xl={16} xxl={16} className="px-2">
+    <div>
+      <Drawer
+        title="Crear Nota"
+        placement="right"
+        onClose={() => changeCreateForm(false)}
+        visible={showCreateForm}
+      >
+        <HomeNoteForm />
+      </Drawer>
+      <Row>
+        <Col span={24}>
+          <div className="note-admin px-2">
+            <Button
+              size="large"
+              shape="circle"
+              onClick={() => changeVisibility()}
+              icon={
+                visibilityType === 'list' ? (
+                  <AppstoreOutlined />
+                ) : (
+                  <BarsOutlined />
+                )
+              }
+            />
+
+            <Button onClick={() => changeCreateForm(true)}>
+              Crear nueva nota
+            </Button>
+          </div>
+        </Col>
+
         {notes.length ? (
           <>
             {notes.map((e, i) => (
-              <NoteCard key={`note-${i}`}>
-                <div className="note">
-                  <div>{e.name}</div>
-                  <div className="note__actions">
-                    <Button
-                      onClick={() => deleteNote(i)}
-                      size={'small'}
-                      shape="circle"
-                      icon={<DeleteOutlined />}
-                    />
+              <Col {...getColumsConfig()} key={`note-${i}`} className="px-2">
+                <NoteCard>
+                  <div className="note">
+                    <div>{e.name}</div>
+                    <div className="note__actions">
+                      <Button
+                        onClick={() => viewNote(e, i)}
+                        size={'small'}
+                        shape="circle"
+                        icon={<EyeOutlined />}
+                      />
+                      <Button
+                        onClick={() => deleteNote(i)}
+                        size={'small'}
+                        shape="circle"
+                        icon={<DeleteOutlined />}
+                      />
+                    </div>
                   </div>
-                </div>
-              </NoteCard>
+                </NoteCard>
+              </Col>
             ))}
           </>
         ) : (
@@ -71,30 +95,7 @@ export const HomeNotes = () => {
             <Empty />
           </>
         )}
-      </Col>
-      <Col
-        xs={24}
-        sm={24}
-        md={12}
-        lg={8}
-        xl={8}
-        xxl={8}
-        className="px-2 note-form"
-      >
-        <div>
-          <Input
-            className="field"
-            onChange={(e) => changeInput<string>('name', e.currentTarget.value)}
-          />
-          <TextArea
-            className="field"
-            onChange={(e) =>
-              changeInput<string>('description', e.currentTarget.value)
-            }
-          />
-        </div>
-        <Button onClick={createNote}>Crear</Button>
-      </Col>
-    </Row>
+      </Row>
+    </div>
   )
 }
