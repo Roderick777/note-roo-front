@@ -5,24 +5,28 @@ import { Navbar } from './components/Navbar/Navbar'
 import 'antd/dist/antd.css' // or 'antd/dist/antd.less'
 import './App.scss'
 import './styles/global.scss'
+import { Provider } from 'react-redux'
+import store from './store/index'
 
 export default function App() {
   return (
-    <Router>
-      <div className="navbarContainer">
-        <Navbar />
+    <Provider store={store}>
+      <Router>
+        <div className="navbarContainer">
+          <Navbar />
 
-        <div className="viewContainer">
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+          <div className="viewContainer">
+            <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   )
 }

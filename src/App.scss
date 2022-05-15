@@ -1,20 +1,26 @@
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color: #fff;
-    --accent-bg-color: #fff;
-    --bg-action: #fff;
-    --text-color: #222;
-  }
+:root {
+  --bg-color: #fff;
+  --accent-bg-color: #fff;
+  --bg-action: #fff;
+  --text-color: #222;
 }
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     --bg-color: #fff;
+//     --accent-bg-color: #fff;
+//     --bg-action: #fff;
+//     --text-color: #222;
+//   }
+// }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #222;
-    --bg-action: #333;
-    --accent-bg-color: #1e1e1e;
-    --text-color: #fff;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --bg-color: #222;
+//     --bg-action: #333;
+//     --accent-bg-color: #1e1e1e;
+//     --text-color: #fff;
+//   }
+// }
 
 * {
   font-family: 'PT Sans', sans-serif;
