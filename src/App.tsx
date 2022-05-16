@@ -4,7 +4,6 @@ import About from './views/about/About'
 import { Navbar } from './components/Navbar/Navbar'
 import 'antd/dist/antd.css' // or 'antd/dist/antd.less'
 import './App.scss'
-import './styles/global.scss'
 import { Provider } from 'react-redux'
 import store from './store/index'
 
