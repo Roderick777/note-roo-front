@@ -2,31 +2,18 @@ import { Button, Col, Drawer, Empty, Row } from 'antd'
 import { useEffect } from 'react'
 import { NoteCard } from '../../../components/NoteCard/NoteCard'
 import './HomeNotes.scss'
-import {
-  DeleteOutlined,
-  AppstoreOutlined,
-  BarsOutlined,
-  EditOutlined,
-  EyeOutlined,
-} from '@ant-design/icons'
+import { DeleteOutlined, EyeOutlined } from '@ant-design/icons'
 import { useSelector } from 'react-redux'
 import { IStore } from '../../../store'
 import { HomeNoteForm } from './HomeNoteForm'
 import { useHomeNotes } from '../hooks/useHomeNotes'
+import { HomeNotesAction } from './HomeNotesAction'
 
 export const HomeNotes = () => {
-  const { notes, showCreateForm, visibilityType } = useSelector(
-    ({ note }: IStore) => note
-  )
+  const { notes, showCreateForm } = useSelector(({ note }: IStore) => note)
 
-  const {
-    listNotes,
-    deleteNote,
-    changeVisibility,
-    changeCreateForm,
-    viewNote,
-    getColumsConfig,
-  } = useHomeNotes()
+  const { listNotes, deleteNote, changeCreateForm, viewNote, getColumsConfig } =
+    useHomeNotes()
 
   useEffect(() => {
     listNotes()
@@ -43,26 +30,7 @@ export const HomeNotes = () => {
         <HomeNoteForm />
       </Drawer>
       <Row>
-        <Col span={24}>
-          <div className="note-admin px-2">
-            <Button
-              size="large"
-              shape="circle"
-              onClick={() => changeVisibility()}
-              icon={
-                visibilityType === 'list' ? (
-                  <AppstoreOutlined />
-                ) : (
-                  <BarsOutlined />
-                )
-              }
-            />
-
-            <Button onClick={() => changeCreateForm(true)}>
-              Crear nueva nota
-            </Button>
-          </div>
-        </Col>
+        <HomeNotesAction />
 
         {notes.length ? (
           <>
@@ -74,13 +42,13 @@ export const HomeNotes = () => {
                     <div className="note__actions">
                       <Button
                         onClick={() => viewNote(e, i)}
-                        size={'small'}
+                        size={'middle'}
                         shape="circle"
                         icon={<EyeOutlined />}
                       />
                       <Button
                         onClick={() => deleteNote(i)}
-                        size={'small'}
+                        size={'middle'}
                         shape="circle"
                         icon={<DeleteOutlined />}
                       />

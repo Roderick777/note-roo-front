@@ -7,14 +7,14 @@ import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons'
 
 export const HomeNotesAction = () => {
   const { visibilityType } = useSelector(({ note }: IStore) => note)
-
   const { changeVisibility, changeCreateForm } = useHomeNotes()
 
   return (
     <Col span={24}>
-      <div className="note-admin px-2">
+      <div className="note-admin px-2 py-2">
         <Button
           size="large"
+          type="primary"
           shape="circle"
           onClick={() => changeVisibility()}
           icon={
@@ -22,7 +22,13 @@ export const HomeNotesAction = () => {
           }
         />
 
-        <Button onClick={() => changeCreateForm(true)}>Crear nueva nota</Button>
+        <Button
+          size="large"
+          type="primary"
+          onClick={() => changeCreateForm(true)}
+        >
+          Crear nueva nota
+        </Button>
       </div>
     </Col>
   )
