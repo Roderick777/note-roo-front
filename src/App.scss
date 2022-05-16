@@ -29,6 +29,7 @@
 
 .ant-drawer-header {
   border-bottom: none;
+  padding-top: 24px;
 }
 
 .ant-btn {
@@ -68,4 +69,10 @@
 
 .gap-1 {
   gap: 4px;
+}
+
+@media screen and (max-width: 576px) {
+  .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
 }

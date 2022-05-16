@@ -4,6 +4,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 4px;
+  margin-bottom: 10px;
 }
 
 .note-form {
@@ -16,6 +17,30 @@
   &__actions {
     display: flex;
     justify-content: flex-end;
-    gap: 4px;
+    gap: 8px;
   }
+  &__title {
+    font-size: 1.2rem;
+    border-bottom: 3px solid #ddd;
+    margin-bottom: 10px;
+  }
+  &__description {
+    color: #777;
+  }
+  &__category {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    &__circle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.customNoteCard {
+  // height: 100%;
 }

@@ -11,6 +11,12 @@ const initialState: INoteState = {
     description: '',
     status: true,
     tags: [],
+    category: {
+      id: 0,
+      name: 'Sin Categoría',
+      description: 'Esta es Categoría que se asigna por defecto',
+      color: '#DDD',
+    },
   },
 }
 

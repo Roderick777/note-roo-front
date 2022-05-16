@@ -36,9 +36,21 @@ export const HomeNotes = () => {
           <>
             {notes.map((e, i) => (
               <Col {...getColumsConfig()} key={`note-${i}`} className="px-2">
-                <NoteCard>
+                <NoteCard className="customNoteCard">
                   <div className="note">
-                    <div>{e.name}</div>
+                    <div className="note__title">{e.name}</div>
+                    <p className="note__description">
+                      {e.description.length > 100
+                        ? e.description.substring(0, 100) + '...'
+                        : e.description}
+                    </p>
+                    <div className="note__category">
+                      <div
+                        className="note__category__circle"
+                        style={{ backgroundColor: e.category?.color }}
+                      ></div>
+                      <div>{e.category?.name}</div>
+                    </div>
                     <div className="note__actions">
                       <Button
                         onClick={() => viewNote(e, i)}
