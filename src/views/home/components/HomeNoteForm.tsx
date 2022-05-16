@@ -22,9 +22,12 @@ export const HomeNoteForm = () => {
           }
         />
       </div>
+
       <div className="dflex justify-content-end py-2 gap-1">
-        <Button onClick={() => changeCreateForm(false)}>Cerrar</Button>
-        <Button type="primary" onClick={createNote}>
+        <Button size="large" onClick={() => changeCreateForm(false)}>
+          Cerrar
+        </Button>
+        <Button size="large" type="primary" onClick={createNote}>
           Crear
         </Button>
       </div>

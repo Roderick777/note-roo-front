@@ -39,13 +39,17 @@ export const useHomeNotes = () => {
   }
 
   const viewNote = (e: INote, i: number) => {
-    Modal.warning({
+    Modal.info({
       title: e.name,
       content: e.description,
       okText: '',
       cancelButtonProps: { style: { display: 'none' } },
       cancelText: 'Cerrar',
       onOk: async () => {},
+      maskStyle: {
+        width: '100%',
+        height: '100%',
+      },
     })
   }
 
