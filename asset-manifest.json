@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/note-roo-front/static/css/main.a227a2ed.chunk.css",
-    "main.js": "/note-roo-front/static/js/main.41fefd3c.chunk.js",
-    "main.js.map": "/note-roo-front/static/js/main.41fefd3c.chunk.js.map",
+    "main.css": "/note-roo-front/static/css/main.e694c84a.chunk.css",
+    "main.js": "/note-roo-front/static/js/main.6ac7d633.chunk.js",
+    "main.js.map": "/note-roo-front/static/js/main.6ac7d633.chunk.js.map",
     "runtime-main.js": "/note-roo-front/static/js/runtime-main.4d980e32.js",
     "runtime-main.js.map": "/note-roo-front/static/js/runtime-main.4d980e32.js.map",
     "static/css/2.ab949138.chunk.css": "/note-roo-front/static/css/2.ab949138.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.44192aab.chunk.js.map": "/note-roo-front/static/js/3.44192aab.chunk.js.map",
     "index.html": "/note-roo-front/index.html",
     "static/css/2.ab949138.chunk.css.map": "/note-roo-front/static/css/2.ab949138.chunk.css.map",
-    "static/css/main.a227a2ed.chunk.css.map": "/note-roo-front/static/css/main.a227a2ed.chunk.css.map",
+    "static/css/main.e694c84a.chunk.css.map": "/note-roo-front/static/css/main.e694c84a.chunk.css.map",
     "static/js/2.f8d5e83b.chunk.js.LICENSE.txt": "/note-roo-front/static/js/2.f8d5e83b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4d980e32.js",
     "static/css/2.ab949138.chunk.css",
     "static/js/2.f8d5e83b.chunk.js",
-    "static/css/main.a227a2ed.chunk.css",
-    "static/js/main.41fefd3c.chunk.js"
+    "static/css/main.e694c84a.chunk.css",
+    "static/js/main.6ac7d633.chunk.js"
   ]
 }
